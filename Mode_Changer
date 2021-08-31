@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+import subprocess
+
+def MonitorMode(interface,mode):
+    subprocess.call(['ifconfig',interface,'down'])
+    subprocess.call(['iwconfig',interface,'mode',mode])
+    subprocess.call(['ifconfig',interface,'up'])
+    subprocess.call(['iwconfig',interface])
+
+interface1 = input('[+] ENTER THE INTERFACE YOU WANT TO CHANGE (ex: wlan0) : ')
+mode1 = input('[+] ENTER THE MODE WHICH YOU WANT (ex : monitor) : ')
+
+MonitorMode(interface1,mode1)
